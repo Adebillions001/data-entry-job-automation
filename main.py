@@ -55,9 +55,7 @@ driver.get(SF_RENTING_FORM)
 driver.implicitly_wait(20)
 
 #Comb through the data gotten from BeautifulSoup.
-count = 0
 for house_address, price, link in zip(address_text, edited_price, href):
-    count += 1
 
     all_input = driver.find_element(By.XPATH, "//div[@class='Qr7Oae'][1]")
     property_input = all_input.find_element(By.XPATH, ".//input[@class='whsOnd zHQkBf']")
@@ -77,7 +75,6 @@ for house_address, price, link in zip(address_text, edited_price, href):
     submit_another_response = driver.find_element(By.LINK_TEXT, "Submit another response")
     submit_another_response.click()
 
-    if count == 4:
-        break
+    
 
-print(f"Submitted a total of {count} forms.")
+print(f"Submitted a total of len{edited_price} forms.")
